@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TAE Prompt Launcher → Grok</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>TAE Prompt Launcher</h1>
+    <p class="tagline">Pick a vibe → get prompt ideas → open Grok and paste.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1) Add your photo (local preview only)</h2>
+      <p class="muted">Your image stays on your device. We don’t upload or store it.</p>
+      <div class="uploader">
+        <label for="photo" class="btn">Choose Image</label>
+        <input type="file" id="photo" accept="image/*">
+        <div id="preview" class="preview"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2) Choose a category</h2>
+      <div class="controls">
+        <select id="category">
+          <option value="" disabled selected>Select a category…</option>
+          <option value="portrait">Human Portrait</option>
+          <option value="couple">Couple</option>
+          <option value="pet">Pet / Animal</option>
+          <option value="fashion">Fashion / Outfit</option>
+          <option value="fitness">Fitness</option>
+          <option value="product">Product / E-com</option>
+          <option value="horror">Horror / Cinematic</option>
+          <option value="winter">Winter / Snow</option>
+          <option value="street">Street / Urban</option>
+        </select>
+        <button id="generate" class="btn">Generate prompts</button>
+      </div>
+      <div class="options">
+        <label><input type="checkbox" id="raw"> Include RAW photorealistic tag</label>
+        <label><input type="checkbox" id="neg"> Include a basic negative prompt</label>
+      </div>
+      <div id="ideas" class="ideas"></div>
+    </section>
+
+    <section class="card">
+      <h2>3) Edit or copy</h2>
+      <textarea id="chosen" rows="8" placeholder="Your selected prompt will appear here…"></textarea>
+      <div class="actions">
+        <button id="copy" class="btn">Copy to clipboard</button>
+        <a id="openGrok" class="btn secondary" href="https://grok.x.ai/" target="_blank" rel="noopener">Open Grok</a>
+      </div>
+      <p class="muted small">Tap “Copy”, then paste the prompt in Grok and upload your photo there.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p class="muted small">Made for Josh’s TAE experiments. Local-only image preview. No backend.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
