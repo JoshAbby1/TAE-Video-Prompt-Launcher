@@ -9,24 +9,24 @@
 <body>
   <header>
     <h1>TAE Prompt Launcher</h1>
-    <p class="tagline">Pick a vibe → get prompt ideas → open Grok and paste.</p>
+    <p class="tagline">Upload → pick a vibe → get prompts → open Grok and paste.</p>
   </header>
 
   <main>
     <section class="card">
-      <h2>1) Add your photo (local preview only)</h2>
-      <p class="muted">Your image stays on your device. We don’t upload or store it.</p>
+      <h2>1) Upload your photo (local only)</h2>
+      <p class="muted">Your photo never leaves your device.</p>
       <div class="uploader">
-        <label for="photo" class="btn">Choose Image</label>
+        <label for="photo" class="btn">Upload Photo</label>
         <input type="file" id="photo" accept="image/*">
-        <div id="preview" class="preview"></div>
+        <span id="uploadStatus" class="status-pill">No photo selected</span>
       </div>
     </section>
 
     <section class="card">
-      <h2>2) Choose a category</h2>
+      <h2>2) Choose a category & video vibe</h2>
       <div class="controls">
-        <select id="category">
+        <select id="category" aria-label="Category">
           <option value="" disabled selected>Select a category…</option>
           <option value="portrait">Human Portrait</option>
           <option value="couple">Couple</option>
@@ -38,12 +38,24 @@
           <option value="winter">Winter / Snow</option>
           <option value="street">Street / Urban</option>
         </select>
+
+        <select id="vibe" aria-label="Video Vibe">
+          <option value="" disabled selected>Video vibe…</option>
+          <option value="cute">Cute video</option>
+          <option value="chaotic">Chaotic video</option>
+          <option value="calm">Calm video</option>
+          <option value="random">Random video</option>
+          <option value="funny">Funny video</option>
+        </select>
+
         <button id="generate" class="btn">Generate prompts</button>
       </div>
+
       <div class="options">
         <label><input type="checkbox" id="raw"> Include RAW photorealistic tag</label>
         <label><input type="checkbox" id="neg"> Include a basic negative prompt</label>
       </div>
+
       <div id="ideas" class="ideas"></div>
     </section>
 
@@ -52,14 +64,14 @@
       <textarea id="chosen" rows="8" placeholder="Your selected prompt will appear here…"></textarea>
       <div class="actions">
         <button id="copy" class="btn">Copy to clipboard</button>
-        <a id="openGrok" class="btn secondary" href="https://grok.x.ai/" target="_blank" rel="noopener">Open Grok</a>
+        <a id="openGrok" class="btn ghost" href="https://grok.x.ai/" target="_blank" rel="noopener">Open Grok</a>
       </div>
       <p class="muted small">Tap “Copy”, then paste the prompt in Grok and upload your photo there.</p>
     </section>
   </main>
 
   <footer>
-    <p class="muted small">Made for Josh’s TAE experiments. Local-only image preview. No backend.</p>
+    <p class="muted small">Made for Josh’s TAE experiments. Local-only image handling. No backend.</p>
   </footer>
 
   <script src="script.js"></script>
